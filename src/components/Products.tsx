@@ -52,6 +52,7 @@ function Products(): JSX.Element {
                   ))}
                 </ul>
               </div>
+
             </div>
           </div>
         ))}
