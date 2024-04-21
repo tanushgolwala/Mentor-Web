@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import mentorVid from '../assets/mentor.mp4';
-
+import study from '../assets/study.mp4';
 const Explore: React.FC<{ id: string }> = ({ id }) => {
 
     return (
@@ -8,7 +7,7 @@ const Explore: React.FC<{ id: string }> = ({ id }) => {
             <div className='w-full h-screen relative'>
                 <video
                     className='w-full h-full object-cover'
-                    src={mentorVid}
+                    src={study}
                     autoPlay
                     loop
                     muted

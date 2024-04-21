@@ -5,6 +5,7 @@ import Listing from './pages/Listing';
 function App() {
   return (
     <Home />
+    // <Listing />
   );
 }
 
