@@ -1,40 +1,64 @@
 import React, { useEffect, useState } from "react";
+import MentorDetails from "./MentorDetails";
 
 interface Product {
-    id: number;
-    title: string;
-    description: string;
-    thumbnail: string;
+  _id: string;
+  name: string;
+  domain: [];
+  image: string;
+  email: string;
 }
 
 function Products(): JSX.Element {
-    const [data, setData] = useState<Product[]>([]);
+  const [data, setData] = useState<Product[]>([]);
 
-    useEffect(() => {
-        fetch("https://dummyjson.com/products")
-            .then((res) => res.json())
-            .then((json: { products: Product[] }) => setData(json.products));
-    }, []);
+  useEffect(() => {
+    fetch("http://localhost:5001/find-mentor/") //YE URL CHANGE KARNA HAI
+      .then((res) => res.json())
+      .then((json: Product[]) => setData(json));
+  }, []);
 
-    return (
-        <div>
-            <div className="flex items-center justify-center flex-wrap">
-                {data.map((item: Product) => (
-                    <div key={item.id} className="flex items-center justify-between p-5">
-                        <div
-                            className="flex flex-col items-center justify-center space-y-3 shadow-2xl h-96 w-80 cursor-pointer hover:drop-shadow-xl transition-all duration-500 rounded-xl border-black border"
-                        >
-                            <img src={item.thumbnail} alt={item.title} className="h-40 w-40 rounded-full" />
-                            <div className="flex flex-col items-center justify-center flex-wrap px-3 space-y-6">
-                                <h1 className="text-gray-400 text-md">{item.title}</h1>
-                                <p className="text-gray-600 text-sm">{item.description}</p>
-                            </div>
-                        </div>
-                    </div>
-                ))}
+  const [showMentorDetail, setShowMentorDetail] = useState(false);
+
+  function handleDivClick(item: Product) {
+    console.log(item._id, item.name);
+    setShowMentorDetail(true);
+  }
+
+  function handleMentorInfoClose() {
+    setShowMentorDetail(false);
+  }
+
+  return (
+    <div>
+      {showMentorDetail && (
+        <MentorDetails handleClose={handleMentorInfoClose} />
+      )}
+      <div className="flex items-center justify-center flex-wrap">
+        {data.map((item: Product) => (
+          <div
+            key={item._id}
+            className="flex items-center justify-between p-5"
+            onClick={() => handleDivClick(item)}
+          >
+            <div className="flex flex-col  items-center justify-center space-y-3 shadow-2xl h-96 w-80 cursor-pointer hover:drop-shadow-xl transition-all duration-500 rounded-xl border-black border">
+              <img src={item.image} alt={item.name} className="h-80 w-52" />
+              <div className="flex flex-col items-center justify-center flex-wrap px-3">
+                <h3 className="text-gray-600">{item.name}</h3>
+                <h4 className="text-gray-600">{item.email}</h4>
+                <ul className="text-gray-500 text-sm mb-3">
+                  {item.domain.map((item, index) => (
+                    <li style={{ padding: "0px 2px " }}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+
             </div>
-        </div>
-    );
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export default Products;

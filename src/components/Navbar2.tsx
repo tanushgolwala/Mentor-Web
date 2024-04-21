@@ -19,25 +19,31 @@ const Navbar2: React.FC = () => {
   };
 
   return (
-    <div className='flex w-full justify-between items-center h-20 px-4 absolute z-10 text-white'>
+    <div className="flex w-full justify-between items-center h-20 px-4 absolute z-10 text-white">
       <div>
-        <h1 onClick={handleNav} className={logo ? 'hidden' : 'block'}>
+        <h1 onClick={handleNav} className={logo ? "hidden" : "block"}>
           MENTORIFY.
         </h1>
       </div>
-      <ul className='hidden md:flex'>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#catalogue">Catalogue</a></li>
-        <li><a href="">Signout</a></li>
+      <ul className="hidden md:flex">
+        <li>
+          <a href="#home">Home</a>
+        </li>
+        <li>
+          <a href="#catalogue">Catalogue</a>
+        </li>
+        <li>
+          <a href="./">Signout</a>
+        </li>
       </ul>
-      <div className='hidden md:flex'>
+      <div className="hidden md:flex">
         <a href="">
           <BsPerson size={20} />
         </a>
       </div>
-      <div onClick={handleNav} className='md:hidden z-10'>
+      <div onClick={handleNav} className="md:hidden z-10">
         {nav ? (
-          <AiOutlineClose className='text-black' size={20} />
+          <AiOutlineClose className="text-black" size={20} />
         ) : (
           <HiOutlineMenuAlt4 size={20} />
         )}
@@ -46,27 +52,37 @@ const Navbar2: React.FC = () => {
         onClick={handleNav}
         className={
           nav
-            ? 'absolute text-black left-0 top-0 w-full bg-gray-100/90 px-4 py-7 flex flex-col'
-            : 'absolute left-[-100%]'
+            ? "absolute text-black left-0 top-0 w-full bg-gray-100/90 px-4 py-7 flex flex-col"
+            : "absolute left-[-100%]"
         }
       >
         <ul>
           <h1>TRAVELY.</h1>
-          <li className='border-b'><a href="#home">Home</a></li>
-          <li className='border-b'><a href="#destinations">Destinations</a></li>
-          <li className='border-b'><a href="#travel">Travel</a></li>
-          <li className='border-b'><a href="#view">View</a></li>
-          <li className='border-b'><a href="#book">Book</a></li>
-          <div className='flex flex-col'>
-            <button className='my-6'>Search</button>
+          <li className="border-b">
+            <a href="#home">Home</a>
+          </li>
+          <li className="border-b">
+            <a href="#destinations">Destinations</a>
+          </li>
+          <li className="border-b">
+            <a href="#travel">Travel</a>
+          </li>
+          <li className="border-b">
+            <a href="#view">View</a>
+          </li>
+          <li className="border-b">
+            <a href="#book">Book</a>
+          </li>
+          <div className="flex flex-col">
+            <button className="my-6">Search</button>
             <button>Account</button>
           </div>
-          <div className='flex justify-between my-6'>
-            <FaFacebook className='icon' />
-            <FaTwitter className='icon' />
-            <FaYoutube className='icon' />
-            <FaPinterest className='icon' />
-            <FaInstagram className='icon' />
+          <div className="flex justify-between my-6">
+            <FaFacebook className="icon" />
+            <FaTwitter className="icon" />
+            <FaYoutube className="icon" />
+            <FaPinterest className="icon" />
+            <FaInstagram className="icon" />
           </div>
         </ul>
       </div>
