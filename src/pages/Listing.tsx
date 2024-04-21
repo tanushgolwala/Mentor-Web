@@ -3,33 +3,10 @@ import Products from "../components/Products";
 import Navbar2 from "../components/Navbar2";
 import Explore from "../components/Explore";
 import footerLogo from "../assets/logo.svg";
-import Footer from "../components/Footer";
 import { FaFacebook, FaInstagram, FaLinkedin, FaLocationArrow, FaMobileAlt } from "react-icons/fa";
 
 
-interface FooterLink {
-    title: string;
-    link: string;
-}
 
-const FooterLinks: FooterLink[] = [
-    {
-        title: "Home",
-        link: "/#",
-    },
-    {
-        title: "About",
-        link: "/#about",
-    },
-    {
-        title: "Contact",
-        link: "/#contact",
-    },
-    {
-        title: "Blog",
-        link: "/#blog",
-    },
-];
 
 
 const Listing = () => {
