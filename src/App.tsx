@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 
 function App() {
   return (
+
     <React.StrictMode>
       <Router>
         <Routes>
@@ -16,6 +17,7 @@ function App() {
         </Routes>
       </Router>
     </React.StrictMode>
+
   );
 }
 
