@@ -32,7 +32,7 @@ function Products(): JSX.Element {
   return (
     <div>
       {showMentorDetail && (
-        <MentorDetails handleClose={handleMentorInfoClose} />
+        <MentorDetails handleClose={handleMentorInfoClose} mentor={data[0]}/>
       )}
       <div className="flex items-center justify-center flex-wrap">
         {data.map((item: Product) => (
