@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
-import TopMentors from "../components/Mentors";
+import Offer from "../components/Offer";
 
 
 const Home: React.FC = () => {
@@ -10,7 +10,7 @@ const Home: React.FC = () => {
         <div className="App">
             <Navbar />
             <Hero id='hero' />
-            <TopMentors />
+            <Offer />
             <Footer />
             {/* <Login /> */}
         </div>
