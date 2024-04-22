@@ -11,30 +11,30 @@ const OfferData = [
     img: Img1,
     name: "Tech Mentorship",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Expert guidance for mastering tech skills and projects, tailored to your needs.",
   },
   {
     id: 2,
     img: Img2,
     name: "Career Advice",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Navigate your career path with insights from seasoned professionals.",
   },
   {
     id: 3,
     img: Img3,
     name: "Networking Opportunities",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Expand your network and seize new opportunities in your field.",
   },
 ];
 
 const Offer = () => {
   return (
-    <div className="max-w-7xl px-4 sm:px-6 lg:px-8 mb-24 pb-12 flex flex-col justify-center items-center">
+    <div className="px-4 sm:px-6 lg:px-8 mb-24 pb-12 flex flex-col justify-center items-center">
       {/* Header section */}
       <div className="text-left mb-4">
-        <h1 data-aos="fade-up" className="text-3xl font-bold p-5">
+        <h1 data-aos="fade-up" className="text-4xl font-bold p-8 mb-5">
           What we Offer.
         </h1>
       </div>
