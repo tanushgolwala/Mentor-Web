@@ -15,7 +15,7 @@ interface MentorDetailsProps {
 const MentorDetails: React.FC<MentorDetailsProps> = ({ handleClose }) => {
   return (
     <div>
-      <div className="fixed top-0 left-0 z-10 h-screen w-screen bg-black/[.5]">
+      <div className="fixed flex top-0 left-0 z-10 h-screen w-screen bg-black/[.5]">
         {/* <h1>Mentor Info</h1> */}
         <button
           className="close-btn fixed top-10 right-10"
@@ -23,7 +23,7 @@ const MentorDetails: React.FC<MentorDetailsProps> = ({ handleClose }) => {
         >
           ×
         </button>
-        <div className="flex flex-row justify-center">
+        <div className="self-center justify-self-center">
           <h1>Hello</h1>
         </div>
       </div>
