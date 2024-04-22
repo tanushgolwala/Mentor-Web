@@ -1,13 +1,19 @@
 import React from "react";
 import blur from "../assets/blur.mp4";
+import backImg from "../assets/back.jpg";
 
 const Register: React.FC = () => {
   return (
-    <section className="bg-[#1e1e1e] min-h-screen flex items-center justify-center">
+    <section className="bg-[#1e1e1e] min-h-screen flex items-center justify-center" style={{
+      backgroundImage: `url(${backImg})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+    }}>
       {/* login container */}
-      <div className="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl p-5 items-center">
+      <div className="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl p-5 items-centerz z-10 align-middle">
         {/* form */}
-        <div className="md:w-1/2 px-8 md:px-16">
+        <div className="md:w-1/2 px-8 md:px-16 self-center">
           <h2 className="font-bold text-2xl text-[#002D74]">Register</h2>
           <p className="text-xs mt-4 text-[#002D74]">
             If you are a new member, easily register
@@ -67,6 +73,8 @@ const Register: React.FC = () => {
           <video src={blur} loop autoPlay muted className="rounded-2xl" />
         </div>
       </div>
+      <div className="absolute inset-0 bg-black opacity-50" style={{ zIndex: 1 }}></div>
+
     </section>
   );
 };
