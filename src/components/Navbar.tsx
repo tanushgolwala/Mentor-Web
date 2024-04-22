@@ -41,7 +41,7 @@ const Navbar: React.FC = () => {
           <a href="./login">Login</a>
         </li>
         <li>
-          <a href="./login">Signup</a>
+          <a href="./register">Signup</a>
         </li>
       </ul>
       <div className="hidden md:flex">
