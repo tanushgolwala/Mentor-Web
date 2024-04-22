@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MentorDetails from "./MentorDetails";
+import mentorImage from "../assets/placeholders/man2.png";
 
 interface Product {
   _id: string;
@@ -42,7 +43,11 @@ function Products(): JSX.Element {
             onClick={() => handleDivClick(item)}
           >
             <div className="flex flex-col  items-center justify-center space-y-3 shadow-2xl h-96 w-80 cursor-pointer hover:drop-shadow-xl transition-all duration-500 rounded-xl border-black border">
-              <img src={item.image} alt={item.name} className="h-80 w-52" />
+              <img
+                src={mentorImage}
+                alt={item.name}
+                className="w-52 rounded-full bg-blue-100 shadow-xl mb-5"
+              />
               <div className="flex flex-col justify-start flex-wrap px-3">
                 <h3 className="text-gray-600">{item.name}</h3>
                 {/* <h4 className="text-gray-600">{item.email}</h4> */}
