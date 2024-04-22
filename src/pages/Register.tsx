@@ -1,8 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import blur from "../assets/blur.mp4";
 import backImg from "../assets/back.jpg";
 
 const Register: React.FC = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSignUpSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(
+        "https://8222-2401-4900-627a-63c9-cc76-36a7-86f0-6973.ngrok-free.app/signup/mentor",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+      if (response.ok) {
+        console.log("Sign up data sent successfully");
+      } else {
+        console.error(
+          "Sending sign up data unsuccessful:",
+          response.statusText
+        );
+      }
+    } catch (error) {
+      console.error("Error sending sign up data:", error);
+    }
+  };
+
   return (
     <section className="bg-[#1e1e1e] min-h-screen flex items-center justify-center" style={{
       backgroundImage: `url(${backImg})`,
@@ -19,19 +54,33 @@ const Register: React.FC = () => {
             If you are a new member, easily register
           </p>
 
-          <form action="" className="flex flex-col gap-4">
+          <form
+            action=""
+            onSubmit={handleSignUpSubmit}
+            className="flex flex-col gap-4"
+          >
             <input
-              className="p-2 mt-8 rounded-xl border"
+              className="p-2 mt-8 rounded-xl border w-full"
+              type="text"
+              name="name"
+              placeholder="Name"
+              onChange={handleChange}
+            />
+            <input
+              className="p-2 rounded-xl border"
               type="email"
               name="email"
               placeholder="Email"
+              onChange={handleChange}
             />
+
             <div className="relative">
               <input
                 className="p-2 rounded-xl border w-full"
                 type="password"
                 name="password"
                 placeholder="Password"
+                onChange={handleChange}
               />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +94,17 @@ const Register: React.FC = () => {
                 <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
               </svg>
             </div>
-            <button className="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300">
+            <input
+              className="p-2 rounded-xl border"
+              type="text"
+              name="domain"
+              placeholder="Domain"
+              onChange={handleChange}
+            />
+            <button
+              type="submit"
+              className="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300"
+            >
               Register
             </button>
           </form>
@@ -55,10 +114,6 @@ const Register: React.FC = () => {
             <p className="text-center text-sm">OR</p>
             <hr className="border-gray-400" />
           </div>
-
-          {/* <div className="mt-5 text-xs border-b border-[#002D74] py-4 text-[#002D74]">
-              <a href="#">Forgot your password?</a>
-            </div> */}
 
           <div className="mt-3 text-xs flex flex-col justify-between items-center text-[#002D74]">
             <p>Already have an account?</p>

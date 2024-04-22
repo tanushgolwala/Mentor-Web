@@ -27,6 +27,7 @@ const MentorDetails: React.FC<MentorDetailsProps> = ({ handleClose, mentor }) =>
             <p>Domain: {mentor.domain.join(', ')}</p>
             <p>Email: {mentor.email}</p>
           </div>
+
         </div>
       </div>
     </div>
