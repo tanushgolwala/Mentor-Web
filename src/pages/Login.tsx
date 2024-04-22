@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import blur from "../assets/blur.mp4";
-import backImg from "../assets/back.jpg";
+import backImg from "../assets/back.svg";
 
 const Login: React.FC = () => {
   const [formData, setFormData] = useState({

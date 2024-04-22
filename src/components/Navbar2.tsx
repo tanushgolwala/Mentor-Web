@@ -57,24 +57,21 @@ const Navbar2: React.FC = () => {
         }
       >
         <ul>
-          <h1>TRAVELY.</h1>
-          <li className="border-b">
-            <a href="#home">Home</a>
+          <h1>MENTORIFY.</h1>
+
+          <li>
+            <a href="./">Home</a>
           </li>
-          <li className="border-b">
-            <a href="#destinations">Destinations</a>
+          <li>
+            <a href="./listing">Catalogue</a>
           </li>
-          <li className="border-b">
-            <a href="#travel">Travel</a>
+          <li>
+            <a href="./login">Login</a>
           </li>
-          <li className="border-b">
-            <a href="#view">View</a>
-          </li>
-          <li className="border-b">
-            <a href="#book">Book</a>
+          <li>
+            <a href="./login">Signup</a>
           </li>
           <div className="flex flex-col">
-            <button className="my-6">Search</button>
             <button>Account</button>
           </div>
           <div className="flex justify-between my-6">
