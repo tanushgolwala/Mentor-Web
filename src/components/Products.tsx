@@ -43,16 +43,15 @@ function Products(): JSX.Element {
           >
             <div className="flex flex-col  items-center justify-center space-y-3 shadow-2xl h-96 w-80 cursor-pointer hover:drop-shadow-xl transition-all duration-500 rounded-xl border-black border">
               <img src={item.image} alt={item.name} className="h-80 w-52" />
-              <div className="flex flex-col items-center justify-center flex-wrap px-3">
+              <div className="flex flex-col justify-start flex-wrap px-3">
                 <h3 className="text-gray-600">{item.name}</h3>
-                <h4 className="text-gray-600">{item.email}</h4>
+                {/* <h4 className="text-gray-600">{item.email}</h4> */}
                 <ul className="text-gray-500 text-sm mb-3">
                   {item.domain.map((item, index) => (
                     <li style={{ padding: "0px 2px " }}>{item}</li>
                   ))}
                 </ul>
               </div>
-
             </div>
           </div>
         ))}

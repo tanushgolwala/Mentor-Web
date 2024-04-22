@@ -1,72 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import blur from "../assets/blur.mp4";
 
-const Login: React.FC = () => {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleLoginSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    try {
-      const response = await fetch(
-        "https://8222-2401-4900-627a-63c9-cc76-36a7-86f0-6973.ngrok-free.app/login/mentor",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
-
-      // Check if response is successful
-      if (!response.ok) {
-        throw new Error("Failed to log in");
-      }
-
-      // Parse JSON response
-      const data = await response.json();
-      console.log("Login successful");
-      // console.log(data);
-
-      // Store token in localStorage
-      localStorage.setItem("token", data.token);
-
-      //Redirect to profilePage
-      window.location.href = "/listing";
-    } catch (error) {
-      console.error("Error sending login data:", error);
-    }
-  };
-
+const Register: React.FC = () => {
   return (
     <section className="bg-[#1e1e1e] min-h-screen flex items-center justify-center">
       {/* login container */}
       <div className="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl p-5 items-center">
         {/* form */}
         <div className="md:w-1/2 px-8 md:px-16">
-          <h2 className="font-bold text-2xl text-[#002D74]">Login</h2>
+          <h2 className="font-bold text-2xl text-[#002D74]">Register</h2>
           <p className="text-xs mt-4 text-[#002D74]">
-            If you are already a member, easily log in
+            If you are a new member, easily register
           </p>
 
-          <form
-            action=""
-            onSubmit={handleLoginSubmit}
-            className="flex flex-col gap-4"
-          >
+          <form action="" className="flex flex-col gap-4">
             <input
               className="p-2 mt-8 rounded-xl border"
               type="email"
               name="email"
               placeholder="Email"
-              onChange={handleChange}
             />
             <div className="relative">
               <input
@@ -74,7 +26,6 @@ const Login: React.FC = () => {
                 type="password"
                 name="password"
                 placeholder="Password"
-                onChange={handleChange}
               />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -88,11 +39,8 @@ const Login: React.FC = () => {
                 <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
               </svg>
             </div>
-            <button
-              type="submit"
-              className="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300"
-            >
-              Login
+            <button className="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300">
+              Register
             </button>
           </form>
 
@@ -107,9 +55,9 @@ const Login: React.FC = () => {
             </div> */}
 
           <div className="mt-3 text-xs flex flex-col justify-between items-center text-[#002D74]">
-            <p>Don't have an account?</p>
+            <p>Already have an account?</p>
             <button className="mt-3 py-2 px-5 bg-white border rounded-xl hover:scale-110 duration-300">
-              Register
+              Login
             </button>
           </div>
         </div>
@@ -122,4 +70,4 @@ const Login: React.FC = () => {
     </section>
   );
 };
-export default Login;
+export default Register;

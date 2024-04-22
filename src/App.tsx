@@ -4,15 +4,16 @@ import Home from "./pages/Home";
 import Listing from "./pages/Listing";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function App() {
   return (
-
     <React.StrictMode>
       <Router>
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/login" element={<Login />}></Route>
+          <Route path="/register" element={<Register />}></Route>
           <Route path="/listing" element={<Listing />}></Route>
         </Routes>
       </Router>
