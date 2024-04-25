@@ -15,18 +15,17 @@ const Register: React.FC = () => {
   const handleSignUpSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await fetch(
-        "https://8222-2401-4900-627a-63c9-cc76-36a7-86f0-6973.ngrok-free.app/signup/mentor",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch("http://localhost:5001/signup/mentee", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
       if (response.ok) {
         console.log("Sign up data sent successfully");
+        window.alert("Sign up successful, Please Login to continue");
+        window.location.href = "/login";
       } else {
         console.error(
           "Sending sign up data unsuccessful:",
@@ -39,12 +38,15 @@ const Register: React.FC = () => {
   };
 
   return (
-    <section className="bg-[#1e1e1e] min-h-screen flex items-center justify-center" style={{
-      backgroundImage: `url(${backImg})`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-    }}>
+    <section
+      className="bg-[#1e1e1e] min-h-screen flex items-center justify-center"
+      style={{
+        backgroundImage: `url(${backImg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       {/* login container */}
       <div className="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl p-5 items-centerz z-10 align-middle">
         {/* form */}
@@ -117,7 +119,12 @@ const Register: React.FC = () => {
 
           <div className="mt-3 text-xs flex flex-col justify-between items-center text-[#002D74]">
             <p>Already have an account?</p>
-            <button className="mt-3 py-2 px-5 bg-white border rounded-xl hover:scale-110 duration-300">
+            <button
+              onClick={() => {
+                window.location.href = "/login";
+              }}
+              className="mt-3 py-2 px-5 bg-white border rounded-xl hover:scale-110 duration-300"
+            >
               Login
             </button>
           </div>
@@ -128,8 +135,10 @@ const Register: React.FC = () => {
           <video src={blur} loop autoPlay muted className="rounded-2xl" />
         </div>
       </div>
-      <div className="absolute inset-0 bg-black opacity-50" style={{ zIndex: 1 }}></div>
-
+      <div
+        className="absolute inset-0 bg-black opacity-50"
+        style={{ zIndex: 1 }}
+      ></div>
     </section>
   );
 };
