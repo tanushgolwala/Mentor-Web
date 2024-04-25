@@ -45,7 +45,7 @@ const FooterLinks: FooterLink[] = [
 const Footer: React.FC = () => {
   return (
     <div style={BannerImg} className="text-white">
-      <div className="flex flex-row justify-center w-screen">
+      <div className="flex flex-row justify-center ">
         <div
           data-aos="zoom-in"
           className="grid md:grid-cols-3 pb-44 pt-5 justify-evenly self-center"
