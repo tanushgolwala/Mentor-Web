@@ -15,7 +15,7 @@ const Login: React.FC = () => {
   const handleLoginSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5001/login/mentor", {
+      const response = await fetch("http://localhost:5001/login/mentee", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -25,31 +25,36 @@ const Login: React.FC = () => {
 
       // Check if response is successful
       if (!response.ok) {
+        window.alert("Invalid email or password");
         throw new Error("Failed to log in");
+      } else {
+        // Parse JSON response
+        const data = await response.json();
+
+        // console.log(data);
+        console.log("Login successful");
+
+        // Store token in localStorage
+        localStorage.setItem("token", data.token);
+
+        //Redirect to profilePage
+        window.location.href = "/listing";
       }
-
-      // Parse JSON response
-      const data = await response.json();
-      console.log("Login successful");
-      // console.log(data);
-
-      // Store token in localStorage
-      localStorage.setItem("token", data.token);
-
-      //Redirect to profilePage
-      window.location.href = "/listing";
     } catch (error) {
       console.error("Error sending login data:", error);
     }
   };
 
   return (
-    <section className="bg-[#1e1e1e] min-h-screen flex items-center justify-center" style={{
-      backgroundImage: `url(${backImg})`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-    }}>
+    <section
+      className="bg-[#1e1e1e] min-h-screen flex items-center justify-center"
+      style={{
+        backgroundImage: `url(${backImg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       {/* login container */}
       <div className="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl p-5 items-center z-10">
         {/* form */}
@@ -111,7 +116,12 @@ const Login: React.FC = () => {
 
           <div className="mt-3 text-xs flex flex-col justify-between items-center text-[#002D74]">
             <p>Don't have an account?</p>
-            <button className="mt-3 py-2 px-5 bg-white border rounded-xl hover:scale-110 duration-300">
+            <button
+              onClick={() => {
+                window.location.href = "/register";
+              }}
+              className="mt-3 py-2 px-5 bg-white border rounded-xl hover:scale-110 duration-300"
+            >
               Register
             </button>
           </div>
@@ -122,7 +132,10 @@ const Login: React.FC = () => {
           <video src={blur} loop autoPlay muted className="rounded-2xl" />
         </div>
       </div>
-      <div className="absolute inset-0 bg-black opacity-50" style={{ zIndex: 1 }}></div>
+      <div
+        className="absolute inset-0 bg-black opacity-50"
+        style={{ zIndex: 1 }}
+      ></div>
     </section>
   );
 };

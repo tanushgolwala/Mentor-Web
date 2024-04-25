@@ -21,10 +21,10 @@ function Products(): JSX.Element {
 
   const [showMentorDetail, setShowMentorDetail] = useState(false);
 
-  function handleDivClick(item: Product) {
-    console.log(item._id, item.name);
-    setShowMentorDetail(true);
-  }
+  // function handleDivClick(item: Product) {
+  //   console.log(item._id, item.name);
+  //   setShowMentorDetail(true);
+  // }
 
   function handleMentorInfoClose() {
     setShowMentorDetail(false);
@@ -40,7 +40,7 @@ function Products(): JSX.Element {
           <div
             key={item._id}
             className="flex items-center justify-between p-5"
-            onClick={() => handleDivClick(item)}
+            // onClick={() => handleDivClick(item)}
           >
             <div className="flex flex-col  items-center justify-center space-y-3 shadow-2xl h-96 w-80 cursor-pointer hover:drop-shadow-xl transition-all duration-500 rounded-xl border-black border">
               <img

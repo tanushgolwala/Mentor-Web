@@ -2,8 +2,6 @@ import React from "react";
 import Img1 from "../assets/shirt/tech.svg";
 import Img2 from "../assets/shirt/career.svg";
 import Img3 from "../assets/shirt/network.svg";
-import { FaStar } from "react-icons/fa";
-import { off } from "process";
 
 const OfferData = [
   {
