@@ -36,9 +36,16 @@ const Login: React.FC = () => {
 
         // Store token in localStorage
         localStorage.setItem("token", data.token);
+        console.log(`Token stored in localStorage ${data.token}`);
+
+        //Save jwt in header.Authorization
+        localStorage.setItem("Authorization", data.token);
 
         //Redirect to profilePage
         window.location.href = "/listing";
+        console.log("Redirected to listings page");
+        console.log(localStorage.getItem("token"));
+        console.log(`Authorization: ${localStorage.getItem("Authhorization")}`);
       }
     } catch (error) {
       console.error("Error sending login data:", error);

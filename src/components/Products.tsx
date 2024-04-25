@@ -21,10 +21,17 @@ function Products(): JSX.Element {
 
   const [showMentorDetail, setShowMentorDetail] = useState(false);
 
-  // function handleDivClick(item: Product) {
-  //   console.log(item._id, item.name);
-  //   setShowMentorDetail(true);
-  // }
+  function handleDivClick(item: Product) {
+    const subject = "Contacting you for mentorship from Mentorify platform";
+    const body =
+      "Dear Sir/Madam,\n\nI am interested in your mentorship. Can we schedule a meeting?\n\nRegards,\n<Your Name>";
+
+    const mailtoUrl = `mailto:${item.email}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+
+    window.open(mailtoUrl);
+  }
 
   function handleMentorInfoClose() {
     setShowMentorDetail(false);
@@ -40,7 +47,7 @@ function Products(): JSX.Element {
           <div
             key={item._id}
             className="flex items-center justify-between p-5"
-            // onClick={() => handleDivClick(item)}
+            onClick={() => handleDivClick(item)}
           >
             <div className="flex flex-col  items-center justify-center space-y-3 shadow-2xl h-96 w-80 cursor-pointer hover:drop-shadow-xl transition-all duration-500 rounded-xl border-black border">
               <img
@@ -50,10 +57,12 @@ function Products(): JSX.Element {
               />
               <div className="flex flex-col justify-start flex-wrap px-3">
                 <h3 className="text-gray-600">{item.name}</h3>
-                {/* <h4 className="text-gray-600">{item.email}</h4> */}
+                <h4 className="text-gray-600">{item.email}</h4>
                 <ul className="text-gray-500 text-sm mb-3">
                   {item.domain.map((item, index) => (
-                    <li style={{ padding: "0px 2px " }}>{item}</li>
+                    <li key={index} style={{ padding: "0px 2px " }}>
+                      {item}
+                    </li>
                   ))}
                 </ul>
               </div>
